@@ -22,28 +22,28 @@ public class Main {
                     number1 = Double.parseDouble(input);
                 } else {
                     System.out.println("Error, invalid input, terminating program...");     //if input is neither numeric, nor m for memory or x for exit the program is terminated with a System.exit(0)
-                    System.exit(0);                                                   //later to be replaced with a loop that sends the app back towards the start of number 1 input process
+                    System.exit(0);                                                   //later to be replaced with a loop that sends the app back towards the start of the number 1 input process
                 }
             }
             UserInterface.printUI();
-            System.out.println("Enter operator, + - * / (or x to exit program): ");
-            input = sc.next();
+            System.out.println("Enter operator, + - * / (or x to exit program): ");     //next step is the question for the operator, I don't like this solution and will surely replace it with
+            input = sc.next();                                                          //something more streamlined later...
             switch(input) {
                 case "+": operator = "+"; break;
                 case "-": operator = "-"; break;
                 case "*": operator = "*"; break;
                 case "/": operator = "/"; break;
-                case "x": System.out.println("Exiting program..."); System.exit(0);
+                case "x": System.out.println("Exiting program..."); System.exit(0);     //also the same exiting conditions as above during number 1 step
                 default: System.out.println("Error, invalid input, terminating program..."); System.exit(0);
             }
             UserInterface.printUI();
-            System.out.println("Enter number 2 or m to access memory (or x to exit program): ");
+            System.out.println("Enter number 2 or m to access memory (or x to exit program): ");    //next step is number 2 input, works in the same way as number 1 process with one exception...
             input = sc.next();
             switch(input) {
                 case "m": break;
                 case "x": System.out.println("Exiting program..."); System.exit(0);
-                default: if(Main.isNumeric(input) == true) {
-                    number2 = Double.parseDouble(input);
+                default: if(Main.isNumeric(input) == true) {        //it has a more intricate if branching within default of the switch case to perform the specified calculations a save the result in the result variable
+                    number2 = Double.parseDouble(input);            //will also later be expanded to write the result into the memory array
                     if(operator.equals("+")) {
                         result = Calculator.calcAdd(number1, number2);
                     } else if(operator.equals("-")) {
@@ -59,12 +59,12 @@ public class Main {
                         }
                     }
                 } else {
-                    System.out.println("Error, invalid input, terminating program...");
+                    System.out.println("Error, invalid input, terminating program...");     //also same exit/termination conditions as above
                     System.exit(0);
                 }
             }
             UserInterface.printUI();
-            System.out.println("The result is: " + result);
+            System.out.println("The result is: " + result);         //shows the result and asks if the program is to be exited (or terminated, remember to loop that later) or if another calculation loop is to be performed
             System.out.println("Do you want to do another calculation? Press y for yes or x to exit program: ");
             input = sc.next();
             switch(input) {
@@ -74,7 +74,7 @@ public class Main {
             }
         }
     }
-    public static boolean isNumeric(String str) {
+    public static boolean isNumeric(String str) {   //method to check if input variable is numeric or not
         try {
             Double.parseDouble(str);
             return true;

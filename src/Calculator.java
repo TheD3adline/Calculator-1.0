@@ -1,10 +1,10 @@
 public class Calculator {
 
-    private static double number1;
+    private static double number1;          //the actual calculator class, set up variables and corresponding getters/setters for later use
     private static double number2;
     private static double result;
 
-    public static double calcAdd(double number1, double number2) {
+    public static double calcAdd(double number1, double number2) {  //the different calculation methods
         return number1 + number2;
     }
 
@@ -16,7 +16,7 @@ public class Calculator {
         return number1 * number2;
     }
 
-    public static double calcDivide(double number1, double number2) throws DivideThroughZeroException {
+    public static double calcDivide(double number1, double number2) throws DivideThroughZeroException {     //calcDivide() method throws an exception plus message if it detects an attempt to divide by 0
         if(number2 == 0) {
             throw new DivideThroughZeroException("Dividing through 0 is not possible!");
         }

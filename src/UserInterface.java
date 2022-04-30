@@ -1,5 +1,5 @@
 public class UserInterface {
-    public static void printUI() {
+    public static void printUI() {  //the class and static method to print the UI to console, later to be expanded to properly read and display all relevant data
         System.out.println("************************************************************************");
         System.out.println("*                                                                      *");
         System.out.println("*       + Add                                 1.)                      *");
