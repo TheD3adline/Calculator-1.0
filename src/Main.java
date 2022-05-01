@@ -39,17 +39,21 @@ public class Main {
             switch(input) {
                 case "m": break;
                 case "x": System.out.println("Exiting program..."); System.exit(0);
-                default: if(Main.isNumeric(input) == true) {        //it has a more intricate if branching within default of the switch case to perform the specified calculations and save the result in the result variable
-                    number2 = Double.parseDouble(input);            //will also later be expanded to write the result into the memory array
+                default: if(Main.isNumeric(input) == true) {        //it has a more intricate if branching within default of the switch case to perform the specified calculations and save the result in the result variable and the memory array
+                    number2 = Double.parseDouble(input);
                     if(operator.equals("+")) {
                         result = Calculator.calcAdd(number1, number2);
+                        Memory.writeMem(result);
                     } else if(operator.equals("-")) {
                         result = Calculator.calcSubtract(number1, number2);
+                        Memory.writeMem(result);
                     } else if(operator.equals("*")) {
                         result = Calculator.calcMultiply(number1, number2);
+                        Memory.writeMem(result);
                     } else {
                         try {
                             result = Calculator.calcDivide(number1, number2);
+                            Memory.writeMem(result);
                         } catch(DivideThroughZeroException e) {
                             System.out.println(e.getMessage());
                             result = 0.0;
