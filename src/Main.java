@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {            //First real practice project, a little calculator app, only the 4 basic math operations in a console environment,
                                                         //but with a custom memory array that saves the last 10 results and a function to inject them as the numbers for calculation.
-        String input;                                   //I'm sure it's super messy and way too intricate, but it's my first real own app...
+        String input;                                   ////I'm sure it's super messy and way too intricate, but it's my first real own app...
+        String operator;
         boolean loop = true;
         Scanner sc = new Scanner(System.in);
         double number1 = 0;
         double number2 = 0;
         double result = 0;
-        String operator = "+";
 
         while(loop == true) {
             UserInterface.printUI();
@@ -26,13 +26,10 @@ public class Main {
                 }
             }
             UserInterface.printUI();
-            System.out.println("Enter operator, + - * / (or x to exit program): ");     //next step is the question for the operator, I don't like this solution and will surely replace it with
-            input = sc.next();                                                          //something more streamlined later...
-            switch(input) {
-                case "+": operator = "+"; break;
-                case "-": operator = "-"; break;
-                case "*": operator = "*"; break;
-                case "/": operator = "/"; break;
+            System.out.println("Enter operator, + - * / (or x to exit program): ");     //next step is the question for the operator
+            operator = sc.next();
+            switch(operator) {
+                case "+", "-", "*", "/": break;
                 case "x": System.out.println("Exiting program..."); System.exit(0);     //also the same exiting conditions as above during number 1 step
                 default: System.out.println("Error, invalid input, terminating program..."); System.exit(0);
             }
@@ -42,7 +39,7 @@ public class Main {
             switch(input) {
                 case "m": break;
                 case "x": System.out.println("Exiting program..."); System.exit(0);
-                default: if(Main.isNumeric(input) == true) {        //it has a more intricate if branching within default of the switch case to perform the specified calculations a save the result in the result variable
+                default: if(Main.isNumeric(input) == true) {        //it has a more intricate if branching within default of the switch case to perform the specified calculations and save the result in the result variable
                     number2 = Double.parseDouble(input);            //will also later be expanded to write the result into the memory array
                     if(operator.equals("+")) {
                         result = Calculator.calcAdd(number1, number2);
