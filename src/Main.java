@@ -16,7 +16,7 @@ public class Main {
         double result = 0;
 
         while(loopMain == true) {
-            UserInterface.printUI();
+            UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
             while(loopNum1 == true) {
                 System.out.println("Enter number 1 or m to access memory (or x to exit program): ");
                 input = sc.next();  //input is always of String to allow for - number 1 > operator > number 2 - input order like in a real calculator and the possibility to access memory or exit the program at any relevant step
@@ -31,7 +31,7 @@ public class Main {
                     }
                 }
             }
-            UserInterface.printUI();
+            UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
             while(loopOperator == true) {
                 System.out.println("Enter operator, + - * / (or x to exit program): ");     //next step is the question for the operator
                 operator = sc.next();
@@ -41,7 +41,7 @@ public class Main {
                     default: System.out.println("Error, invalid input...");                 //if the input is invalid the while loop is maintained
                 }
             }
-            UserInterface.printUI();
+            UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
             while(loopNum2 == true) {
                 System.out.println("Enter number 2 or m to access memory (or x to exit program): ");    //next step is number 2 input, works in the same way as number 1 process with one exception cont...
                 input = sc.next();
@@ -54,26 +54,26 @@ public class Main {
                             loopNum2 = false;                           //and then ends while loopNum2
                             result = Calculator.calcAdd(number1, number2);
                             Memory.writeMem(result);
-                            UserInterface.printUI();
+                            UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
                             System.out.println("The result is: " + result);
                         } else if(operator.equals("-")) {
                             loopNum2 = false;
                             result = Calculator.calcSubtract(number1, number2);
                             Memory.writeMem(result);
-                            UserInterface.printUI();
+                            UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
                             System.out.println("The result is: " + result);
                         } else if(operator.equals("*")) {
                             loopNum2 = false;
                             result = Calculator.calcMultiply(number1, number2);
                             Memory.writeMem(result);
-                            UserInterface.printUI();
+                            UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
                             System.out.println("The result is: " + result);
                         } else {
                             try {
                                 result = Calculator.calcDivide(number1, number2);
                                 loopNum2 = false;
                                 Memory.writeMem(result);
-                                UserInterface.printUI();
+                                UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
                                 System.out.println("The result is: " + result);
                             } catch(DivideByZeroException e) {
                                 System.out.println(e.getMessage());

@@ -1,9 +1,4 @@
-public class Calculator {
-
-    private static double number1;          //the actual calculator class, set up variables and corresponding getters/setters for later use
-    private static double number2;
-    private static double result;
-
+public class Calculator {       //calculator class with the arithmetic methods
     public static double calcAdd(double number1, double number2) {  //the different calculation methods
         return number1 + number2;
     }
@@ -21,29 +16,5 @@ public class Calculator {
             throw new DivideByZeroException("Dividing by 0 is not possible!");
         }
         return number1 / number2;
-    }
-
-    public static double getNumber1() {
-        return number1;
-    }
-
-    public static void setNumber1(double number1) {
-        Calculator.number1 = number1;
-    }
-
-    public static double getNumber2() {
-        return number2;
-    }
-
-    public static void setNumber2(double number2) {
-        Calculator.number2 = number2;
-    }
-
-    public static double getResult() {
-        return result;
-    }
-
-    public static void setResult(double result) {
-        Calculator.result = result;
     }
 }
