@@ -16,9 +16,9 @@ public class Calculator {
         return number1 * number2;
     }
 
-    public static double calcDivide(double number1, double number2) throws DivideThroughZeroException {     //calcDivide() method throws an exception plus message if it detects an attempt to divide by 0
+    public static double calcDivide(double number1, double number2) throws DivideByZeroException {     //calcDivide() method throws an exception plus message if it detects an attempt to divide by 0
         if(number2 == 0) {
-            throw new DivideThroughZeroException("Dividing through 0 is not possible!");
+            throw new DivideByZeroException("Dividing by 0 is not possible!");
         }
         return number1 / number2;
     }
