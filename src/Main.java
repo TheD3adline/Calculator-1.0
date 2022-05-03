@@ -5,7 +5,6 @@ public class Main {
                                                         //but with a custom memory array that saves the last 10 results and a function to inject them as the numbers for calculation.
         String input;                                   ////I'm sure it's super messy and way too intricate, but it's my first real own app...
         String operator = "+";
-        boolean loopMain = true;
         boolean loopNum1 = true;
         boolean loopOperator = true;
         boolean loopNum2 = true;
@@ -15,7 +14,7 @@ public class Main {
         double number2 = 0;
         double result = 0;
 
-        while(loopMain == true) {
+        while(true) {
             UserInterface.printUI(loopNum1, loopOperator, loopNum2, loopFinal, number1, operator, number2, result);
             while(loopNum1 == true) {
                 System.out.println("Enter number 1 or m to access memory (or x to exit program): ");

@@ -1,6 +1,6 @@
 public class UserInterface {        //the class and static method to print the UI to console
     public static void printUI(boolean loopNum1, boolean loopOperator, boolean loopNum2, boolean loopFinal, double number1, String operator, double number2, double result) {
-        if(loopNum1 && loopOperator && loopNum2 && loopFinal == true) {
+        if((loopNum1 == true) && (loopOperator == true) && (loopNum2 == true) && (loopFinal == true)) {
             System.out.println("************************************************************************");
             System.out.println("                                                                        ");
             System.out.println("        + Add                                 1.) " + Memory.readMem(0));
@@ -17,7 +17,7 @@ public class UserInterface {        //the class and static method to print the U
             System.out.println("                                                                        ");
             System.out.println("                                                                        ");
             System.out.println("************************************************************************");
-        } else if((loopNum1 == false) && (loopOperator && loopNum2 && loopFinal == true)) {
+        } else if((loopNum1 == false) && (loopOperator == true) && (loopNum2 == true) && (loopFinal == true)) {
             System.out.println("************************************************************************");
             System.out.println("                                                                        ");
             System.out.println("        + Add                                 1.) " + Memory.readMem(0));
@@ -34,7 +34,7 @@ public class UserInterface {        //the class and static method to print the U
             System.out.println("        " + number1);
             System.out.println("                                                                        ");
             System.out.println("************************************************************************");
-        } else if((loopNum1 && loopOperator == false) && (loopNum2 && loopFinal == true)) {
+        } else if((loopNum1 == false) && (loopOperator == false) && (loopNum2 == true) && (loopFinal == true)) {
             System.out.println("************************************************************************");
             System.out.println("                                                                        ");
             System.out.println("        + Add                                 1.) " + Memory.readMem(0));
@@ -51,7 +51,7 @@ public class UserInterface {        //the class and static method to print the U
             System.out.println("        " + number1 + " " + operator);
             System.out.println("                                                                        ");
             System.out.println("************************************************************************");
-        } else if((loopNum1 && loopOperator && loopNum2 == false) && loopFinal == true) {
+        } else if((loopNum1 == false) && (loopOperator == false) && (loopNum2 == false) && (loopFinal == true)) {
             System.out.println("************************************************************************");
             System.out.println("                                                                        ");
             System.out.println("        + Add                                 1.) " + Memory.readMem(0));
