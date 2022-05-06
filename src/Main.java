@@ -6,6 +6,7 @@ public class Main {
                                                         //but with a custom memory array that saves the last 10 results and a function to inject them as the numbers for calculation.
         String input;                                   ////I'm sure it's super messy and way too intricate, but it's my first real own app...
         String operator = "+";
+        String memInput;
         int memSelect;
         boolean loopNum1 = true;
         boolean loopOperator = true;
@@ -24,20 +25,18 @@ public class Main {
                 switch(input) {
                     case "m":   //the switch branching to access the memory array and inject one of its double data as number 1 to be calculated, to be implemented
                         System.out.println("Enter memory slot for injection as number 1 (1, 2, 3, 4, 5, 6, 7, 8, 9, or 10): ");
-                        try {
-                            memSelect = sc.nextInt();
-                        } catch(InputMismatchException e) {
-                            break;
-                        }
-                        if((memSelect >= 1) && (memSelect <= 10)) {
-                            number1 = Memory.readMem(memSelect - 1);
-                            System.out.println("Successfully injected " + Memory.readMem(memSelect - 1) + " as number 1!");
-                            loopNum1 = false;
-                            break;
+                        memInput = sc.next();
+                        if(Main.isNumericInt(memInput) == true) {
+                            memSelect = Integer.parseInt(memInput);
+                            if((memSelect >= 1) && (memSelect <= 10)) {
+                                number1 = Memory.readMem(memSelect - 1);
+                                System.out.println("Successfully injected " + Memory.readMem(memSelect - 1) + " as number 1!");
+                                loopNum1 = false;
+                            }
                         } else {
                             System.out.println("Error, invalid input...");
-                            break;
                         }
+                        break;
                     case "x": System.out.println("Exiting program..."); System.exit(0);     //x branching to exit program
                     default: if(Main.isNumeric(input) == true) {        //checks if input is numeric and then assigns it to number 1 variable, ends the loop when condition passed
                                 loopNum1 = false;
@@ -121,7 +120,16 @@ public class Main {
         try {
             Double.parseDouble(str);
             return true;
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    public static boolean isNumericInt(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e) {
             return false;
         }
     }
